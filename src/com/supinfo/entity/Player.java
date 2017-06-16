@@ -12,7 +12,7 @@ public class Player {
 	
 	public Player(Board board) {
 		this.board = board;
-		this.score = 0;
+		this.setScore(0);
 		this.sc = new Scanner(System.in);
 	}
 	
@@ -26,5 +26,14 @@ public class Player {
 		
 		} while(board.addLine(p1, p2));
 		return true;
+	}
+	
+	// GETTERS & SETTERS
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }

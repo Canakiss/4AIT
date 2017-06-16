@@ -2,7 +2,9 @@ package com.supinfo.game;
 
 public class Point {
 
+	@SuppressWarnings("unused")
 	private int x;
+	@SuppressWarnings("unused")
 	private int y;
 	private int value;
 	
