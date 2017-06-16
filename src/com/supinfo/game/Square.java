@@ -1,7 +1,5 @@
 package com.supinfo.game;
 
-import java.util.List;
-
 public class Square {
 
 	private Line top;
