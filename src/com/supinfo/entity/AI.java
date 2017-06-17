@@ -13,4 +13,8 @@ public class AI {
 		this.board = board;
 		this.score = 0;
 	}
+	
+	public void turn() {
+		
+	}
 }
