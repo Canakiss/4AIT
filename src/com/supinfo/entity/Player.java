@@ -18,9 +18,9 @@ public class Player {
 	}
 
 	public void turn() {
-		int p1, p2, res;
-		Line line;
-		do {
+		int p1, p2, res = 0;
+		Line line = null;
+		while((line == null || res > 0) && board.canPlay()) {
 			res = 0;
 			board.promptBoard();
 			System.out.println("Choisissez un point ");
@@ -33,7 +33,7 @@ public class Player {
 				res = board.winPoints(line);
 				score += res;
 			}
-		} while((line == null || res > 0) && board.canPlay());
+		}
 
 	}
 

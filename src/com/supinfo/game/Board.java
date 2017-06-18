@@ -10,6 +10,7 @@ public class Board {
 	private int height;
 	private List<Point> points;
 	private List<Line> lines;
+	private List<Line> availableLines;
 
 	public Board(int x, int y) {
 		points = new ArrayList<Point>();
@@ -18,6 +19,7 @@ public class Board {
 		this.width = x;
 		this.height = y;
 		initBoard();
+		availableLines = lines;
 	}
 
 	private void initBoard() {
@@ -136,6 +138,7 @@ public class Board {
 		for(Line line : lines) {
 			if (line.getPoint1()==point1 && line.getPoint2()==point2 && line.isAvailable()) {
 				line.setAvailable(false);
+				availableLines.remove(line);
 				return line;
 			}
 		}
@@ -200,5 +203,9 @@ public class Board {
 
 	public List<Line> getLines() {
 		return lines;
+	}
+	
+	public List<Line> getAvailableLines() {
+		return availableLines;
 	}
 }
