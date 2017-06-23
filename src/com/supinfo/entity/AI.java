@@ -1,12 +1,11 @@
 package com.supinfo.entity;
 
 import java.util.List;
-import java.util.Scanner;
 
 import com.supinfo.game.Board;
 import com.supinfo.game.Line;
 
-public class AI {
+public class AI extends Entity {
 
 	private int score;
 	private Board board;

@@ -117,6 +117,7 @@ public class Board {
 	}
 
 	public Line addLine(int p1, int p2) {
+		System.out.println("Ajout de la ligne "+p1+" - "+p2);
 		int searchPoint1, searchPoint2;
 		Point point1 = null, point2 = null;
 		if (p1<p2) {
@@ -144,33 +145,17 @@ public class Board {
 		}
 		return null;
 	}
-
-	public boolean lineAvailable(int p1, int p2) {
-		int searchPoint1, searchPoint2;
-		Point point1 = null, point2 = null;
-		if (p1<p2) {
-			searchPoint1 = p1;
-			searchPoint2 = p2;
-		} else {
-			searchPoint1 = p2;
-			searchPoint2 = p1;
-		}
-
-		for (Point p : points) {
-			if (p.getValue() == searchPoint1) {
-				point1=p;
-			}
-			if (p.getValue() == searchPoint2) {
-				point2=p;
+	
+	public List<Line> getListAvailable() {
+		List<Line> res = new ArrayList<>();
+		
+		for (Line line : lines) {
+			if (line.isAvailable()) {
+				res.add(line);
 			}
 		}
-		for(Line line : lines) {
-			if (line.getPoint1()==point1 && line.getPoint2()==point2 && line.isAvailable()) {
-				return true;
-			}
-		}
-
-		return false;
+		
+		return res;
 	}
 
 	public int winPoints(Line line) {
@@ -188,10 +173,10 @@ public class Board {
 	}
 	
 	public boolean canPlay() {
-		for(Line line : lines) {
-			if (line.isAvailable()) {
-				return true;
-			}
+		for(Line line : availableLines) {
+		}
+		if (!availableLines.isEmpty()) {
+			return true;
 		}
 		return false;
 	}
@@ -208,4 +193,17 @@ public class Board {
 	public List<Line> getAvailableLines() {
 		return availableLines;
 	}
+
+	public Square[][] getTab() {
+		return tab;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+	
 }

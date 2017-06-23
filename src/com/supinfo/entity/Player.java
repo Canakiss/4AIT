@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.supinfo.game.Board;
 import com.supinfo.game.Line;
 
-public class Player {
+public class Player extends Entity {
 
 	private int score;
 	private Board board;
@@ -17,12 +17,12 @@ public class Player {
 		this.sc = new Scanner(System.in);
 	}
 
+	@Override
 	public void turn() {
 		int p1, p2, res = 0;
 		Line line = null;
 		while((line == null || res > 0) && board.canPlay()) {
 			res = 0;
-			board.promptBoard();
 			System.out.println("Choisissez un point ");
 			p1 = sc.nextInt();
 			System.out.println("Choisissez un autre point ");
@@ -38,6 +38,7 @@ public class Player {
 	}
 
 	// GETTERS & SETTERS
+	@Override
 	public int getScore() {
 		return score;
 	}
