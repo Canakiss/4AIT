@@ -14,6 +14,30 @@ public class Square {
 		this.left = left;
 		this.right = right;
 	}
+	
+	public boolean belongsSquare(Line line) {		
+		return line.equals(this.top) || line.equals(this.bottom) || line.equals(this.left) || line.equals(this.right);
+	}
+	
+	public int squareValue() {
+		
+		int res = 0;
+		
+		if (!top.isAvailable()) {
+			res+=1;
+		}
+		if (!bottom.isAvailable()) {
+			res+=1;
+		}
+		if (!left.isAvailable()) {
+			res+=1;
+		}
+		if (!right.isAvailable()) {
+			res+=1;
+		}
+		
+		return res;
+	}
 		
 	// GETTERS
 	public Line getTop() {
